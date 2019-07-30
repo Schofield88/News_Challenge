@@ -5,9 +5,10 @@ const NewsCall = require('../src/newsCall');
 exports.thisIsTheNews = (req, res, next) => {
   const list = new List(Article);
   const news = new NewsCall();
+  const { searchTerm } = req.body;
 
   news
-    .getNews('politics')
+    .getNews(searchTerm.toLowerCase())
     .then((newsArray) => {
       newsArray.forEach(article => list.addArticle({ webTitle: article.webTitle, webUrl: article.webUrl }));
     })
