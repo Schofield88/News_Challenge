@@ -1,6 +1,6 @@
 import Article from '../src/article';
 
-describe('Article', () => {
+describe('article', () => {
   it('has read() that returns its URL as a string', () => {
     const articleObject = {
       webTitle: 'Today in the news',
@@ -9,6 +9,6 @@ describe('Article', () => {
     const article = new Article(articleObject);
     const articleURL = article.read();
 
-    expect(articleURL).toEqual(expect.objectContaining(articleObject));
+    expect(articleURL).toStrictEqual(expect.objectContaining(articleObject));
   });
 });
