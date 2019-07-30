@@ -7,7 +7,7 @@ exports.thisIsTheNews = (req, res, next) => {
   const news = new NewsCall();
 
   news
-    .getNews()
+    .getNews('politics')
     .then((newsArray) => {
       newsArray.forEach(article => list.addArticle({ webTitle: article.webTitle, webUrl: article.webUrl }));
     })

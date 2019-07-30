@@ -12,7 +12,6 @@ class List {
     const Article = this.article;
     const newArticle = new Article(articleURL);
     const newArray = this.articleArray.concat(newArticle.read());
-    console.log(newArray);
     this.articleArray = newArray;
   }
 }

@@ -2,17 +2,16 @@ const fetch = require('node-fetch');
 
 class NewsCall {
   constructor() {
-    this.apiRequest = 'https://news-summary-api.herokuapp.com/guardian'
-      + '?apiRequestUrl=http://content.guardianapis.com/search?section=politics';
+    this.apiRequest = 'https://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/search?section=';
   }
 
-  makeTheCall() {
-    const request = this.apiRequest;
+  makeTheCall(word) {
+    const request = this.apiRequest + word;
     return fetch(request).then(response => response.json());
   }
 
-  getNews() {
-    return this.makeTheCall().then(news => news.response.results);
+  getNews(searchTerm) {
+    return this.makeTheCall(searchTerm).then(news => news.response.results);
   }
 }
 
