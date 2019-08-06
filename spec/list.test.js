@@ -4,13 +4,14 @@ import Article from '../src/article';
 jest.mock('../src/article');
 
 Article.mockImplementation(() => ({
-  read: jest.fn(() => ({
+  read: jest.fn().mockResolvedValue({
     webTitle: 'Today in the news',
     webUrl: 'http://www.guardian.com/article',
-  })),
+    image: 'lulz.png',
+  }),
 }));
 
-describe('list', () => {
+describe('List', () => {
   const articleMock = Article;
   const list = new List(articleMock);
 
@@ -19,15 +20,18 @@ describe('list', () => {
   });
 
   it('adds a new article model with addArticle()', () => {
+    expect.assertions(2);
+
     const articleObject = {
       webTitle: 'Today in the news',
       webUrl: 'http://www.guardian.com/article',
     };
 
-    list.addArticle(articleObject);
-    const listMyArticles = list.listArticles();
+    return list.addArticle(articleObject).then((response) => {
+      const listMyArticles = list.listArticles();
 
-    expect(articleMock).toHaveBeenCalledWith(articleObject);
-    expect(listMyArticles).toHaveLength(1);
+      expect(articleMock).toHaveBeenCalledWith(articleObject);
+      expect(listMyArticles).toHaveLength(1);
+    });
   });
 });

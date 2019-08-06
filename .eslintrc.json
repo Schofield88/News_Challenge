@@ -4,11 +4,7 @@
     "es6": true,
     "jest/globals": true
   },
-  "extends": [
-    "airbnb-base",
-    "plugin:jest/recommended",
-    "plugin:jest/style"
-  ],
+  "extends": ["airbnb-base", "plugin:jest/recommended", "plugin:jest/style"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -16,9 +12,7 @@
   "parserOptions": {
     "ecmaVersion": 2018
   },
-  "plugins": [
-    "jest"
-  ],
+  "plugins": ["jest"],
   "rules": {
     "jest/prefer-called-with": "warn"
   }

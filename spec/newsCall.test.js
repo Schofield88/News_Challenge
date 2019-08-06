@@ -1,6 +1,6 @@
 const NewsCall = require('../src/newsCall');
 
-describe('newsCall', () => {
+describe('NewsCall', () => {
   const response = {
     response: {
       status: 'ok',
@@ -39,7 +39,7 @@ describe('newsCall', () => {
     // The following two lines do exactly the same thing
     // news.makeTheCall = jest.fn().mockImplementation(() => Promise.resolve(response));
     jest.spyOn(news, 'makeTheCall').mockResolvedValue(response);
-    // note that 'return'. IT HAS TO BE THERE
+    // note that 'return' below. IT HAS TO BE THERE
     return news.getNews(searchTerm).then((data) => {
       const newsObject = data[0];
       expect(news.makeTheCall).toHaveBeenCalledWith(searchTerm);

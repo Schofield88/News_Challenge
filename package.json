@@ -1,32 +1,33 @@
 {
-	"name": "newschallengeapi",
-	"version": "0.0.0",
-	"private": true,
-	"scripts": {
-		"start": "nodemon ./bin/www",
-		"test": "jest --watchAll"
-	},
-	"dependencies": {
-		"@babel/polyfill": "^7.4.4",
-		"cookie-parser": "~1.4.4",
-		"debug": "~2.6.9",
-		"express": "~4.16.1",
-		"express-es6-template-engine": "^2.1.9",
-		"express-handlebars": "^3.1.0",
-		"morgan": "~1.9.1",
-		"node-fetch": "^2.6.0"
-	},
-	"devDependencies": {
-		"@babel/cli": "^7.5.0",
-		"@babel/core": "^7.5.4",
-		"@babel/preset-env": "^7.5.4",
-		"babel-jest": "^24.8.0",
-		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-		"eslint": "^5.16.0",
-		"eslint-config-airbnb-base": "^13.2.0",
-		"eslint-plugin-import": "^2.18.0",
-		"eslint-plugin-jest": "^22.12.0",
-		"jest": "^24.8.0",
-		"nodemon": "^1.19.1"
-	}
+  "name": "newschallengeapi",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "jest --watchAll"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "aylien_textapi": "^0.7.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-es6-template-engine": "^2.1.9",
+    "express-handlebars": "^3.1.0",
+    "morgan": "~1.9.1",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "babel-jest": "^24.8.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jest": "^22.12.0",
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1"
+  }
 }

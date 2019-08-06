@@ -5,16 +5,30 @@ const NewsCall = require('../src/newsCall');
 exports.thisIsTheNews = (req, res, next) => {
   const list = new List(Article);
   const news = new NewsCall();
-  const { searchTerm } = req.body;
+  const { searchterm } = req.body;
 
   news
-    .getNews(searchTerm.toLowerCase())
+    .getNews(searchterm.toLowerCase())
     .then((newsArray) => {
-      newsArray.forEach(article => list.addArticle({ webTitle: article.webTitle, webUrl: article.webUrl }));
+      console.log(newsArray);
+      newsArray.forEach((article) => {
+        list.addArticle({
+          webTitle: article.webTitle,
+          webUrl: article.webUrl,
+        });
+      });
     })
-    .then(() => list.listArticles())
+    .then((something) => {
+      console.log(something);
+      list.listArticles();
+    })
     .then(arrayOfArticles => res.render('index', {
       title: 'Stand by for the news',
       news: arrayOfArticles,
-    }));
+      search: searchterm,
+    }))
+    .catch((err) => {
+      console.log(err);
+      res.status(500);
+    });
 };

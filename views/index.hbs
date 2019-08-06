@@ -3,14 +3,14 @@
     <h1>This is the news</h1>
   </div>
   <div class="news_section grid_3">
-    <h3>Showing Politics</h3>
+    <h3>Showing '{{search}}'</h3>
     <input type="text" placeholder="Type search term here">
   </div>
   <div class="grid_9">
     {{#each news as |item|}}
-        <div class="shadow articles">
-          <a href={{ item.webUrl }} target="_blank">{{ item.webTitle }}</a>
-        </div>
-      {{/each}}
+      <div class="shadow articles">
+        <a href={{ item.webUrl }} target="_blank">{{ item.webTitle }}</a>
+      </div>
+    {{/each}}
   </div>
 </div>

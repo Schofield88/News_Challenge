@@ -10,13 +10,13 @@ This is an Express-based app; to run it, you will need Node installed on your ma
 
 Clone the repository, then at the command line run:
 
-```npm install```
+`npm install`
 
 to install dependencies. To start the server:
 
-```npm run start```
+`npm start`
 
-The server listens on port 8080 - [click here to view.](http://localhost:8080/news)
+The server listens on port 3000 - [click here to view.](http://localhost:3000/)
 
 ## Design choices
 
