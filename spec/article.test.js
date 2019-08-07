@@ -8,12 +8,10 @@ describe('Article', () => {
       webUrl: 'http://www.guardian.com/article',
     };
     const article = new Article(articleObject);
+    const readArticle = article.read();
 
-    return article.read().then((myObject) => {
-      console.log(myObject);
-      expect(myObject).toHaveProperty('webTitle');
-      expect(myObject).toHaveProperty('webUrl');
-      expect(myObject).toHaveProperty('image');
-    });
+    expect(readArticle).toHaveProperty('webTitle');
+    expect(readArticle).toHaveProperty('webUrl');
+    expect(readArticle).toHaveProperty('image');
   });
 });

@@ -4,11 +4,11 @@ import Article from '../src/article';
 jest.mock('../src/article');
 
 Article.mockImplementation(() => ({
-  read: jest.fn().mockResolvedValue({
+  read: jest.fn(() => ({
     webTitle: 'Today in the news',
     webUrl: 'http://www.guardian.com/article',
     image: 'lulz.png',
-  }),
+  })),
 }));
 
 describe('List', () => {
@@ -16,7 +16,10 @@ describe('List', () => {
   const list = new List(articleMock);
 
   it('returns an array of objects with listArticles()', () => {
-    expect(list.listArticles()).toStrictEqual([]);
+    expect.assertions(1);
+    return list.listArticles().then((data) => {
+      expect(data).toStrictEqual([]);
+    });
   });
 
   it('adds a new article model with addArticle()', () => {
@@ -25,13 +28,14 @@ describe('List', () => {
     const articleObject = {
       webTitle: 'Today in the news',
       webUrl: 'http://www.guardian.com/article',
+      image: 'lulz.png',
     };
 
-    return list.addArticle(articleObject).then((response) => {
-      const listMyArticles = list.listArticles();
+    list.addArticle(articleObject);
 
+    return list.listArticles().then((data) => {
       expect(articleMock).toHaveBeenCalledWith(articleObject);
-      expect(listMyArticles).toHaveLength(1);
+      expect(data).toHaveLength(1);
     });
   });
 });
