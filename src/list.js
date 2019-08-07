@@ -1,20 +1,20 @@
-class List {
-  constructor(articleModel) {
-    this.articleArray = [];
-    this.article = articleModel;
+function List(articleModel) {
+  let articleArray = [];
+  const article = articleModel;
+
+  function listArticles() {
+    return Promise.resolve(articleArray);
   }
 
-  listArticles() {
-    return Promise.resolve(this.articleArray);
-  }
-
-  addArticle(articleInfoObject) {
-    const Article = this.article;
+  function addArticle(articleInfoObject) {
+    const Article = article;
     const newArticle = new Article(articleInfoObject);
     const articleObject = newArticle.read();
-    const newArray = this.articleArray.concat(articleObject);
-    this.articleArray = newArray;
+    const newArray = articleArray.concat(articleObject);
+    articleArray = newArray;
   }
+
+  return Object.freeze({ listArticles, addArticle });
 }
 
 module.exports = List;
