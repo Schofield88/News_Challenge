@@ -33,16 +33,14 @@ describe('NewsCall', () => {
   const news = new NewsCall();
 
   it('getNews() returns an array of the news', () => {
-    // makes sure the test knows that four assertions will be made
     expect.assertions(4);
     const searchTerm = 'politics';
-    // The following two lines do exactly the same thing
-    // news.makeTheCall = jest.fn().mockImplementation(() => Promise.resolve(response));
-    jest.spyOn(news, 'makeTheCall').mockResolvedValue(response);
-    // note that 'return' below. IT HAS TO BE THERE
-    return news.getNews(searchTerm).then((data) => {
+
+    const makeTheCallMock = jest.fn().mockResolvedValue(response);
+
+    return news.getNews(searchTerm, makeTheCallMock).then((data) => {
       const newsObject = data[0];
-      expect(news.makeTheCall).toHaveBeenCalledWith(searchTerm);
+      expect(makeTheCallMock).toHaveBeenCalledWith(searchTerm);
       expect(newsObject).toHaveProperty('webTitle');
       expect(newsObject).toHaveProperty('webUrl');
       expect(newsObject).toHaveProperty('sectionName', 'Politics');
