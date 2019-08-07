@@ -1,16 +1,13 @@
-class Article {
-  constructor(urlObject) {
-    this.article = urlObject;
+function Article(urlObject) {
+  const article = urlObject;
+
+  function read() {
+    const myArticle = { webTitle: article.webTitle, webUrl: article.webUrl, image: article.image };
+
+    return myArticle;
   }
 
-  read() {
-    const article = {
-      webTitle: this.article.webTitle,
-      webUrl: this.article.webUrl,
-      image: this.article.image,
-    };
-    return article;
-  }
+  return Object.freeze({ read });
 }
 
 module.exports = Article;

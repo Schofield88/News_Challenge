@@ -57,7 +57,7 @@ describe('Aylien', () => {
       .mockResolvedValueOnce(responseTwo);
 
     return aylien.getImages(megaData, aylienCallMock).then((data) => {
-      expect(aylienCallMock).toHaveBeenCalled();
+      expect(aylienCallMock).toHaveBeenCalledTimes(2);
       expect(data).toEqual(expect.arrayContaining([responseOne, responseTwo]));
     });
   });
