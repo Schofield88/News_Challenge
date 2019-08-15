@@ -12,9 +12,8 @@ exports.thisIsTheNews = (req, res, next) => {
   news
     .getNews(searchterm.toLowerCase())
     .then(newsArray => aylien.getImages(newsArray))
-    .then((news) => {
-      console.log(news);
-      news.forEach((article) => {
+    .then((theNews) => {
+      theNews.forEach((article) => {
         list.addArticle({
           webTitle: article.webTitle,
           webUrl: article.webUrl,
@@ -25,7 +24,7 @@ exports.thisIsTheNews = (req, res, next) => {
     })
     .then((arrayOfArticles) => {
       res.render('index', {
-        title: 'Stand by for the news',
+        title: 'Stand by for The News',
         news: arrayOfArticles,
         search: searchterm,
       });

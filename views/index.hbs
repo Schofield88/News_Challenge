@@ -10,6 +10,7 @@
     {{#each news as |item|}}
       <div class="shadow articles">
         <a href={{ item.webUrl }} target="_blank">{{ item.webTitle }}</a>
+        <img src="{{item.image}}" alt="">
       </div>
     {{/each}}
   </div>
